@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="fungus.css">
+        <link rel="stylesheet" type="text/css" href="https://api.cargo.site/v1/fonts/css?family=DiatypeVariable%7CDiatypeMonoVariable&amp;c=3" media="all">
+    </head>
+    <body>
+<div class="container">
+      <div class="header">
+        <div class="name" onclick="openPopup()">angelinaao</div>
+      </div>
+
+      <div class="content">
+        <div id="left">
+            <h1 class="title">
+                Fungus
+            </h1>
+            <h3 class="subheading">
+                book design
+            </h3>
+            <p class="paragraph">
+                A book transforming Wikapedia’s digital entry on Fungus into print. The images function like the fungus itself—gradually growing in size and spreading across the pages. As they expand, they begin to overtake the space, forcing the text to shrink in response. This visual tension mimics the behavior of fungus, consuming its environment and reshaping the balance between image and type.
+            </p>
+        </div>
+
+
+
+
+        <div id="right">
+            <div class="fungusone">
+                <img src="ao_angelina_fungus_02.jpg" alt="first image">
+             </div>
+            <div class="fungustwo">
+                <img src="fungus_animation.gif" alt="second image">
+            </div>
+            <div class="fungusthree">
+                <img src="fungus_ground.jpg" alt="third image">
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="about-popup" id="aboutPopup">
+        <div class="about-content">
+            <div class="close-btn" onclick="closePopup()">x</div>
+            <h2 class="aboutme"> About me</h2>
+            <p class="one"> Angelina Ao is a New York based graphic designer and photographer. She is currently a Communication Design student at Parsons School of Design minoring in photography.  </p>
+            <p class="two">
+                She has recently completed graphic design internships with brands such as arcandbow and imurart.
+            </p>
+            <p class="linkedin">
+                <a href="https://www.linkedin.com/in/angelina-ao-29988424b/" target="_blank">LinkedIn</a>
+            </p>
+            <p class="resume">
+                <a href="Angelina_Ao_Resume.pdf" target="_blank">Resume</a>
+            </p>
+        </div>
+
+
+    </div>
+    <script>
+        function openPopup() {
+            document.getElementById ("aboutPopup").classList.add("active");
+        }
+        function closePopup(){
+            document.getElementById("aboutPopup").classList.remove("active");
+        }
+    </script>
+        <script src="" async defer></script>
+    </body>
+</html>
