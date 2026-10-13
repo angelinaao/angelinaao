@@ -162,14 +162,18 @@
 }
 /* ---------- Phones: full-bleed landing screen ---------- */
 @media (max-width: 768px) {
-    /* the page itself never scrolls; html clips, body stays unclipped so the
-       image can run underneath Safari's bottom toolbar */
+    /* Safari shows a flat colour strip above a page that is scrolled all the
+       way to the top. So the photo is made --lift taller at the top and the
+       page starts scrolled down by --lift (hpage.js), which puts the top of
+       the photo under the clock and address bar. Text is pushed down by the
+       same amount, so it stays exactly where it was on screen. */
+    :root {
+        --lift: 150px;
+    }
+
     html {
-        height: 100%;
-        overflow: hidden;
         overscroll-behavior: none;
-        /* Safari paints this colour in the strip above the page; hpage.js
-           matches it to the top edge of whichever photo is showing */
+        /* fallback tint for that strip, matched to each photo by hpage.js */
         background-color: black;
     }
 
@@ -177,22 +181,18 @@
         overscroll-behavior: none;
     }
 
-    /* not pinned (Safari won't draw pinned things under its bars): a normal
-       block as tall as the whole screen, so it runs under the toolbars
-       (100lvh = screen height with Safari's bars hidden) */
+    /* a normal block (not pinned: Safari won't draw pinned things under its
+       bars) as tall as the whole screen plus the lift, so it runs under both
+       toolbars (100lvh = screen height with Safari's bars hidden) */
     .landingone {
         position: relative;
-        height: 100vh;
-        height: 100lvh;
-        /* not clipped, so the photo can reach up under the address bar */
-        overflow: visible;
+        height: calc(100vh + var(--lift));
+        height: calc(100lvh + var(--lift));
+        overflow: hidden;
     }
 
-    /* start the photo 160px above the page so it fills the strip under
-       Safari's address bar too, instead of a flat colour */
     .landingone img {
-        top: -160px;
-        height: calc(100% + 160px);
+        height: 100%;
     }
 
     .landingone p.large-title,
@@ -201,16 +201,20 @@
         position: absolute;
     }
 
+    .landingone p.large-title {
+        top: calc(7vh + var(--lift));
+    }
+
     /* same size and spot as the "aa" on the graphic design / photography pages */
     .landingone p.small-title {
         font-size: 24px;
-        top: 16px;
+        top: calc(16px + var(--lift));
         left: 16px;
     }
 
     .landingcontainer {
         margin-left: 16px;
-        top: 24vh;
+        top: calc(24vh + var(--lift));
     }
 
     .graphicdesign h3,

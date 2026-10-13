@@ -11,44 +11,35 @@ function whenReady(img) {
     return img.decode ? img.decode().catch(() => {}) : Promise.resolve();
 }
 
-// On phones Safari paints the page's background colour in the strip above
-// the page, so tint it to match the top edge of the photo on screen (only
-// visible on phones; on desktop the photo covers the whole window).
-const topColorCache = new Map();
-
-function topEdgeColor(img) {
-    if (topColorCache.has(img)) return topColorCache.get(img);
-    let color = null;
-    try {
-        const canvas = document.createElement('canvas');
-        canvas.width = 16;
-        canvas.height = 4;
-        const ctx = canvas.getContext('2d');
-        // top 3% of the photo, middle half of its width (what "cover" keeps)
-        const w = img.naturalWidth, h = img.naturalHeight;
-        ctx.drawImage(img, w * 0.25, 0, w * 0.5, Math.max(1, h * 0.03), 0, 0, 16, 4);
-        const data = ctx.getImageData(0, 0, 16, 4).data;
-        let r = 0, g = 0, b = 0;
-        for (let i = 0; i < data.length; i += 4) {
-            r += data[i]; g += data[i + 1]; b += data[i + 2];
-        }
-        const n = data.length / 4;
-        color = `rgb(${Math.round(r / n)}, ${Math.round(g / n)}, ${Math.round(b / n)})`;
-    } catch (e) {
-        // unreadable (e.g. opened as a local file): keep the black fallback
-    }
-    topColorCache.set(img, color);
-    return color;
-}
-
+// On phones Safari fills the strip above the page (under the clock and
+// address bar) with the page's background colour, and never with the photo.
+// Tint it to match the top edge of the photo on screen. Each image carries
+// its colour in data-top-color (measured ahead of time, so the page never
+// reads pixels, which Safari's private browsing warns about).
 function matchTopStrip(img) {
-    const apply = () => {
-        const color = topEdgeColor(img);
-        if (color) document.documentElement.style.backgroundColor = color;
-    };
-    if (img.complete && img.naturalWidth) apply();
-    else img.addEventListener('load', apply, { once: true });
+    const color = img.dataset.topColor;
+    if (color) document.documentElement.style.backgroundColor = color;
 }
+
+// Phones: the landing screen never scrolls or bounces, and sits scrolled
+// down by --lift (see hpage.css) so the photo fills the strip under Safari's
+// clock and address bar instead of a flat colour.
+const phoneQuery = window.matchMedia('(max-width: 768px)');
+
+function liftPage() {
+    if (!phoneQuery.matches) return;
+    const lift = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--lift')) || 0;
+    window.scrollTo(0, lift);
+}
+
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+document.addEventListener('touchmove', (e) => {
+    if (phoneQuery.matches) e.preventDefault();
+}, { passive: false });
+liftPage();
+window.addEventListener('load', liftPage);
+window.addEventListener('pageshow', liftPage); // coming back with the Back button
+window.addEventListener('resize', liftPage);   // rotation, Safari bars resizing
 
 function createCarouselController(triggerEl, imageSelector) {
     const images = document.querySelectorAll(imageSelector);
