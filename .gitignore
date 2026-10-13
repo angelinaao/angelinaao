@@ -1,0 +1,13 @@
+# Mac system files
+.DS_Store
+Icon?
+
+# Full-size originals, kept on this Mac only. The site uses the smaller
+# copies in graphicdesign/web/ instead (GitHub rejects files over 100 MB).
+graphicdesign/iris 3_port.mov
+graphicdesign/iris 5_port.mov
+graphicdesign/mem 1_port.mov
+graphicdesign/enigma 0_port.png
+graphicdesign/enigma 1_port.png
+graphicdesign/enigma 2_port.png
+graphicdesign/enigma 3_port.png

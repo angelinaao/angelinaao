@@ -1,0 +1,162 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.landingone {
+    position: relative;
+}
+
+.landingone img {
+    max-width: 100%;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Default landing image - always visible unless hovering */
+.landingone img.landing-default {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Carousel images - hidden by default */
+.landingone img.carousel-image {
+    opacity: 0;
+    z-index: 0;
+}
+
+.landingone img.carousel-image.active {
+    opacity: 1;
+}
+
+.landingone img.gd-4 {
+    object-position: center 75%;
+}
+
+@font-face {
+    font-family: "Basteleur Bold";
+    src: url("../fonts/webfonts/Basteleur-Bold.woff2") format("woff2"),
+         url("../fonts/webfonts/Basteleur-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Alte Haas Grotesk, shared with the graphic design page */
+@font-face {
+    font-family: "Alte Haas Grotesk";
+    src: url("../graphicdesign/fonts/AlteHaasGroteskRegular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Alte Haas Grotesk";
+    src: url("../graphicdesign/fonts/AlteHaasGroteskBold.ttf") format("truetype");
+    font-weight: 700;
+}
+
+/* Large centered angelinaao */
+.landingone p.large-title {
+    position: fixed;
+    font-family: "Basteleur Bold", serif;
+    font-size: 15vw;
+    top: 7vh;
+    color: white;
+    padding-left: 4vw;
+    letter-spacing: -0.03em;
+    z-index: 10;
+}
+
+/* Small upper-left angelinaao (hidden by default) */
+.landingone p.small-title {
+    position: fixed;
+    font-family: "Basteleur Bold", serif;
+    font-size: 2vw;
+    top: 2.5vh;
+    left: 2.5vw;
+    color: white;
+    letter-spacing: -0.03em;
+    z-index: 10;
+    opacity: 0;
+    cursor: pointer; /* Make it clear it's clickable */
+}
+
+/* Show small title on hover */
+.landingone p.small-title.visible {
+    opacity: 1;
+}
+
+/* Add hover effect to small title */
+.landingone p.small-title.visible:hover {
+    opacity: 0.7;
+}
+
+.photography h3 {
+    font-family: "Alte Haas Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: 1vw;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.photography:hover h3 {
+    font-weight: 700;
+    opacity: 1;
+}
+
+.photography p {
+    font-family: "Alte Haas Grotesk", sans-serif;
+    font-weight: 400;
+    font-size: 0.8vw;
+    opacity: 0.8;
+}
+
+.graphicdesign h3 {
+    font-family: "Alte Haas Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: 1vw;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.graphicdesign:hover h3 {
+    font-weight: 700;
+    opacity: 1;
+}
+
+.graphicdesign.active h3 {
+    font-weight: 700;
+    opacity: 1;
+}
+
+.graphicdesign p {
+    font-family: "Alte Haas Grotesk", sans-serif;
+    font-weight: 400;
+    font-size: 0.8vw;
+    opacity: 0.8;
+}
+
+.landingcontainer {
+    top: 38vh;
+    position: fixed;
+    color: white;
+    margin-left: 2.5vw;
+    z-index: 10;
+}
+
+.graphicdesign {
+    padding-bottom: 2vh;
+    cursor: pointer;
+}
+
+.photography {
+    cursor: pointer;
+}
+.photography.active h3 {
+    font-weight: 700;
+    opacity: 1;
+}

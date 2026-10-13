@@ -1,0 +1,254 @@
+@font-face {
+font-family: "Basteleur Bold";
+src: url("../fonts/webfonts/Basteleur-Bold.woff2") format("woff2"),
+     url("../fonts/webfonts/Basteleur-Bold.woff") format("woff");
+}
+
+@font-face {
+font-family: "Alte Haas Grotesk";
+src: url("../graphicdesign/fonts/AlteHaasGroteskRegular.ttf") format("truetype");
+font-weight: 400;
+}
+
+@font-face {
+font-family: "Alte Haas Grotesk";
+src: url("../graphicdesign/fonts/AlteHaasGroteskBold.ttf") format("truetype");
+font-weight: 700;
+}
+
+* {
+    margin: 0px;
+box-sizing: border-box;
+}
+
+html,
+body {
+height: 100%;
+overflow: hidden;
+font-family: "Alte Haas Grotesk", sans-serif;
+background: white;
+color: black;
+}
+
+.container {
+padding: 2vh 4vh 4vh 2.5vw;
+height: 100vh;
+display: flex;
+flex-direction: column;
+
+}
+
+.content {
+display: flex;
+flex: 1;
+overflow: hidden;
+
+}
+
+.header {
+display: flex;
+margin-bottom: 2vh;
+
+font-style: normal;
+font-weight: 500;
+
+}
+
+.title {
+font-size: 1rem;
+
+}
+
+.location {
+font-size: 1rem;
+color: black;
+padding-bottom: 2vh;
+
+}
+.subheading {
+padding-bottom: 2vh;
+font-weight: 100;
+font-size: 1rem;
+margin-top: -1vh;
+}
+
+#right {
+width: 65vw;
+overflow-y: auto;
+height: 100%;
+
+
+}
+
+#left {
+width: 35vw;
+position: sticky;
+top: 0;
+align-self: flex-start;
+height: fit-content;
+
+font-style: normal;
+font-weight: 400;
+padding-right: 3.7vh;
+padding-top: 4vh;
+}
+
+#right img,
+#right video {
+width: 100%;
+height: auto;
+display: block;
+}
+
+.media-set[hidden] {
+display: none;
+}
+
+.paragraph {
+padding-right: 4vh;
+font-size: 0.80rem;
+}
+
+.media-set > div:not(:last-child) {
+margin-bottom: 4vh;
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+a:hover {
+text-decoration: none;
+
+}
+.name{
+cursor: pointer;
+}
+
+.project-list {
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+
+.project-row {
+display: flex;
+align-items: flex-end;
+text-decoration: none;
+color: black;
+padding: 0.5vh 0;
+border-bottom: 1px solid transparent;
+}
+
+.project-info {
+display: flex;
+flex-direction: column;
+white-space: nowrap;
+align-items: flex-start;
+}
+
+.project-title {
+font-weight: 500;
+font-size: 0.8rem;
+/* let the title hang over the line so the line starts right after the subtitle */
+width: 0;
+overflow: visible;
+}
+
+.project-title-name {
+position: fixed;
+bottom: 2vw;
+left: 2.5vw;
+font-weight: 500;
+font-size: 0.8rem;
+}
+.project-date {
+font-weight: 400;
+font-size: 0.6rem;
+color: black;
+opacity: 0.7;
+}
+
+.dots {
+flex: 1;
+border-bottom: 1px solid #262626;
+opacity: 0.5;
+margin: 0 1.5vh 0.5vh 0.9vh;
+align-self: flex-end;
+}
+
+
+.category {
+font-size: 0.6rem;
+color: black;
+white-space: nowrap;
+}
+
+.project-row .category {
+opacity: 0.7;
+}
+
+.category-location {
+position: fixed;
+bottom: 2.1vw;
+left: 3.7vh;
+width: 35vw;
+padding-right: 5.5vh;
+text-align: right;
+}
+
+.project-item .project-row {
+cursor: pointer;
+}
+
+.project-description {
+display: grid;
+grid-template-rows: 0fr;
+transition: grid-template-rows 0.45s ease;
+}
+
+.project-description.open {
+grid-template-rows: 1fr;
+}
+
+.project-description-inner {
+overflow: hidden;
+}
+
+.project-description p {
+font-size: 0.8rem;
+font-weight: 400;
+line-height: 1.45;
+padding: 2.5vh 0 3.5vh 0;
+}
+
+.project-description p:not(:last-child) {
+padding-bottom: 0;
+}
+
+.project-description p + p {
+padding-top: 0.8em;
+}
+
+.project-row:hover .project-title {
+
+font-weight: 700;
+
+}
+.small-title {
+    position: fixed;
+    font-family: "Basteleur Bold", serif;
+    font-size: 2vw;
+    top: 2.5vh;
+    left: 2.5vw;
+    color: black;
+    letter-spacing: -0.03em;
+    z-index: 10;
+   
+    cursor: pointer; /* Make it clear it's clickable */
+    transition: opacity 0.3s ease;
+}
+.small-title:hover {
+    opacity: 0.5;
+}

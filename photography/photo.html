@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="photo.css">
+</head>
+
+<body>
+<div class="container">
+<div class="header">
+<a class="small-title" href="../hpage/hpage.html">aa</a>
+</div>
+
+<div class="content">
+<div id="left">
+
+<div class="project-list">
+
+    <div class="project-item">
+      <div class="project-row" onclick="toggleProject('afterimage-desc', 'media-afterimage')">
+        <div class="project-info">
+          <div class="project-title">Drifting</div>
+          <div class="project-date">Digital</div>
+        </div>
+        <div class="dots"></div>
+        <div class="category">01 2026</div>
+      </div>
+      <div class="project-description" id="afterimage-desc">
+        <div class="project-description-inner">
+          <p>This series examines the dissolution of self through the language of artificial light. Using studio strobes and portable flash, each photograph translates an internal emotional state into a constructed visual environment.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Things We Used to Believe (hidden for now)
+    <div class="project-item">
+      <div class="project-row" onclick="toggleProject('believe-desc', 'media-believe')">
+        <div class="project-info">
+          <div class="project-title">The Things We Used to Believe</div>
+          <div class="project-date">Digital</div>
+        </div>
+        <div class="dots"></div>
+        <div class="category">02 2026</div>
+      </div>
+      <div class="project-description" id="believe-desc">
+        <div class="project-description-inner">
+          <p>Description coming soon.</p>
+        </div>
+      </div>
+    </div>
+    -->
+
+    <div class="project-item">
+      <div class="project-row" onclick="toggleProject('somewhere-desc', 'media-somewhere')">
+        <div class="project-info">
+          <div class="project-title">Somewhere</div>
+          <div class="project-date">Digital</div>
+        </div>
+        <div class="dots"></div>
+        <div class="category">02 2024</div>
+      </div>
+      <div class="project-description" id="somewhere-desc">
+        <div class="project-description-inner">
+          <p>Somewhere is a photographic exploration of fleeting moments and the in-between
+            spaces. The series evokes a sense of transcendence&mdash;of stepping into a world that
+            feels almost tangible, yet just out of reach.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-row" onclick="toggleProject('loveshack-desc', 'media-loveshack')">
+        <div class="project-info">
+          <div class="project-title">Love Shack Fancy</div>
+          <div class="project-date">Digital &amp; Analog</div>
+        </div>
+        <div class="dots"></div>
+        <div class="category">03 2025</div>
+      </div>
+      <div class="project-description" id="loveshack-desc">
+        <div class="project-description-inner">
+          <p>Moments between takes at LoveShackFancy. </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-row" onclick="toggleProject('paris-desc', 'media-paris')">
+        <div class="project-info">
+          <div class="project-title">Paris</div>
+          <div class="project-date">Analog</div>
+        </div>
+        <div class="dots"></div>
+        <div class="category">04 2026</div>
+      </div>
+      <div class="project-description" id="paris-desc">
+        <div class="project-description-inner">
+          <p>Film photographs taken in Paris, transferred onto fabric and left to break apart, a map of what I remember and what I&rsquo;ve already started to lose.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-row" onclick="toggleProject('single-desc', 'media-single')">
+        <div class="project-info">
+          <div class="project-title">Single Moments</div>
+          <div class="project-date">Everything</div>
+        </div>
+        <div class="dots"></div>
+        <div class="category">05 2026</div>
+      </div>
+      <div class="project-description" id="single-desc">
+        <div class="project-description-inner">
+          <p>Selected photographs.</p>
+        </div>
+      </div>
+    </div>
+
+</div>
+ <div class="project-title-name">Angelina Ao</div>
+ <div class="category category-location">NEW YORK CITY</div>
+
+</div>
+
+<div id="right">
+
+<div class="media-set" id="media-afterimage" hidden>
+<div class="fungusone">
+<img src="after%201_port.jpg" alt="Afterimage first image">
+</div>
+<div class="fungustwo">
+<img src="after%202_port.JPG" alt="Afterimage second image">
+</div>
+<div class="fungusthree">
+<img src="after%203_port.jpg" alt="Afterimage third image">
+</div>
+<div class="fungusfour">
+<img src="after%204_port.JPG" alt="Afterimage fourth image">
+</div>
+<div class="fungusfive">
+<img src="after%205_port.jpg" alt="Afterimage fifth image">
+</div>
+<div class="fungussix">
+<img src="after%206_port.jpg" alt="Afterimage sixth image">
+</div>
+</div>
+
+<!--
+<div class="media-set" id="media-believe" hidden>
+</div>
+-->
+
+<div class="media-set" id="media-paris" hidden>
+<div class="fungusone">
+<img src="paris%202_port.jpeg" alt="Paris first image">
+</div>
+<div class="fungustwo">
+<img src="paris%203_port.jpg" alt="Paris second image">
+</div>
+<div class="fungusthree">
+<img src="paris%204_port.jpg" alt="Paris third image">
+</div>
+<div class="fungusfour">
+<img src="paris%205_port.jpg" alt="Paris fourth image">
+</div>
+<div class="fungusfive">
+<img src="paris%206_port.jpg" alt="Paris fifth image">
+</div>
+<div class="fungussix">
+<img src="paris%207_port.jpg" alt="Paris sixth image">
+</div>
+<div class="fungusseven">
+<img src="paris%208_port.jpg" alt="Paris seventh image">
+</div>
+<div class="funguseight">
+<img src="paris%209_port.jpg" alt="Paris eighth image">
+</div>
+<div class="fungusnine">
+<img src="paris%2010_port.jpg" alt="Paris ninth image">
+</div>
+</div>
+
+<div class="media-set" id="media-somewhere" hidden>
+<div class="fungusone">
+<img src="photo%201_port.jpg" alt="Somewhere first image">
+</div>
+<div class="fungustwo">
+<img src="photo%202_port.jpg" alt="Somewhere second image">
+</div>
+<div class="funguseleven">
+<img src="photo%2011_port.jpg" alt="Somewhere eleventh image">
+</div>
+<div class="fungusthree">
+<img src="photo%203_port.jpg" alt="Somewhere third image">
+</div>
+<div class="fungusten">
+<img src="photo%2010_port.jpg" alt="Somewhere tenth image">
+</div>
+<div class="fungusfour">
+<img src="photo%204_port.png" alt="Somewhere fourth image">
+</div>
+<div class="fungusfive">
+<img src="photo%205_port.jpg" alt="Somewhere fifth image">
+</div>
+<div class="fungussix">
+<img src="photo%206_port.jpg" alt="Somewhere sixth image">
+</div>
+<div class="fungusseven">
+<img src="photo%207_port.jpg" alt="Somewhere seventh image">
+</div>
+<div class="funguseight">
+<img src="photo%208_port.jpg" alt="Somewhere eighth image">
+</div>
+<div class="fungusnine">
+<img src="photo%209_port.jpg" alt="Somewhere ninth image">
+</div>
+</div>
+
+<div class="media-set" id="media-loveshack" hidden>
+<div class="fungusone">
+<img src="lsf%201_port.jpg" alt="LoveShackFancy first image">
+</div>
+<div class="fungustwo">
+<img src="lsf%202_port.jpg" alt="LoveShackFancy second image">
+</div>
+<div class="fungusthree">
+<img src="lsf%203_port.jpg" alt="LoveShackFancy third image">
+</div>
+<div class="fungusfour">
+<img src="lsf%204_port.jpg" alt="LoveShackFancy fourth image">
+</div>
+<div class="fungusfive">
+<img src="lsf%205_port.jpg" alt="LoveShackFancy fifth image">
+</div>
+<div class="fungussix">
+<img src="lsf%206_port.jpg" alt="LoveShackFancy sixth image">
+</div>
+<div class="fungusseven">
+<img src="lsf%207_port.jpg" alt="LoveShackFancy seventh image">
+</div>
+<div class="funguseight">
+<img src="lsf%208_port.jpg" alt="LoveShackFancy eighth image">
+</div>
+<div class="fungusnine">
+<img src="lsf%209_port.jpg" alt="LoveShackFancy ninth image">
+</div>
+<div class="fungusten">
+<img src="lsf%2010_port.jpg" alt="LoveShackFancy tenth image">
+</div>
+<div class="funguseleven">
+<img src="lsf%2011_port.JPG" alt="LoveShackFancy eleventh image">
+</div>
+<div class="fungustwelve">
+<img src="lsf%2012_port.jpg" alt="LoveShackFancy twelfth image">
+</div>
+<div class="fungusthirteen">
+<img src="lsf%2013_port.JPG" alt="LoveShackFancy thirteenth image">
+</div>
+<div class="fungusfourteen">
+<img src="lsf%2014_port.jpg" alt="LoveShackFancy fourteenth image">
+</div>
+<div class="fungusfifteen">
+<img src="lsf%2015_port.jpg" alt="LoveShackFancy fifteenth image">
+</div>
+<div class="fungussixteen">
+<img src="lsf%2016_port.jpg" alt="LoveShackFancy sixteenth image">
+</div>
+</div>
+
+<div class="media-set" id="media-single" hidden>
+<div class="funguszero">
+<img src="single%200_port.jpg" alt="Single Moments image 0">
+</div>
+<div class="fungusone">
+<img src="single%201_port.jpg" alt="Single Moments first image">
+</div>
+<div class="fungustwo">
+<img src="single%202_port.jpg" alt="Single Moments second image">
+</div>
+<div class="fungusthree">
+<img src="single%203_port.JPG" alt="Single Moments third image">
+</div>
+<div class="fungusthree">
+<img src="single%203.5_port.jpg" alt="Single Moments image 3.5">
+</div>
+<div class="fungusfour">
+<img src="single%204_port.jpg" alt="Single Moments fourth image">
+</div>
+<div class="fungusfive">
+<img src="single%205_port.jpg" alt="Single Moments fifth image">
+</div>
+<div class="fungussix">
+<img src="single%206_port.JPG" alt="Single Moments sixth image">
+</div>
+<div class="fungussix">
+<img src="single%206.5_port.jpg" alt="Single Moments image 6.5">
+</div>
+<div class="fungusseven">
+<img src="single%207_port.jpg" alt="Single Moments seventh image">
+</div>
+<div class="funguseight">
+<img src="single%208_port.jpg" alt="Single Moments eighth image">
+</div>
+<div class="fungusnine">
+<img src="single%209_port.JPG" alt="Single Moments ninth image">
+</div>
+<div class="fungusten">
+<img src="single%2010_port.jpg" alt="Single Moments tenth image">
+</div>
+<div class="funguseleven">
+<img src="single%2011_port.JPG" alt="Single Moments eleventh image">
+</div>
+<div class="fungustwelve">
+<img src="single%2012_port.jpg" alt="Single Moments twelfth image">
+</div>
+<div class="fungusthirteen">
+<img src="single%2013_port.JPG" alt="Single Moments thirteenth image">
+</div>
+<div class="fungusfourteen">
+<img src="single%2014_port.JPG" alt="Single Moments fourteenth image">
+</div>
+<div class="fungusfifteen">
+<img src="single%2015_port.jpg" alt="Single Moments fifteenth image">
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+<script>
+var defaultMedia;
+function toggleProject(id, mediaId) {
+if (!defaultMedia) defaultMedia = mediaId;
+var desc = document.getElementById(id);
+var isOpen = !desc.classList.contains("open");
+var all = document.getElementsByClassName("project-description");
+for (var i = 0; i < all.length; i++) {
+all[i].classList.remove("open");
+            }
+if (isOpen) {
+desc.classList.add("open");
+            }
+showMedia(isOpen ? mediaId : defaultMedia);
+        }
+function showMedia(mediaId) {
+var sets = document.getElementsByClassName("media-set");
+for (var i = 0; i < sets.length; i++) {
+sets[i].hidden = sets[i].id !== mediaId;
+            }
+document.getElementById("right").scrollTop = 0;
+        }
+// open whichever project is at the top of the list on page load
+document.querySelector(".project-row").click();
+</script>
+</body>
+
+</html>
