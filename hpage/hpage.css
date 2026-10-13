@@ -160,28 +160,28 @@
     font-weight: 700;
     opacity: 1;
 }
-/* ---------- Phones: locked landing screen, bigger links ---------- */
+/* ---------- Phones: full-bleed landing screen ---------- */
 @media (max-width: 768px) {
-    /* lock the landing page in place so it can't scroll or bounce */
-    html,
-    body {
-        position: fixed;
-        inset: 0;
-        width: 100%;
+    /* the page itself never scrolls; html clips, body stays unclipped so the
+       image can run underneath Safari's bottom toolbar */
+    html {
         height: 100%;
         overflow: hidden;
         overscroll-behavior: none;
-        /* anything peeking out behind Safari's bars is dark, never white */
-        background: black;
+        /* Safari paints this colour in the strip above the page; hpage.js
+           matches it to the top edge of whichever photo is showing */
+        background-color: black;
     }
 
-    /* fill the whole screen edge to edge, including behind the status bar
-       and Safari's address bar (100lvh = screen height with bars hidden) */
+    body {
+        overscroll-behavior: none;
+    }
+
+    /* not pinned (Safari won't draw pinned things under its bars): a normal
+       block as tall as the whole screen, so it runs under the toolbars
+       (100lvh = screen height with Safari's bars hidden) */
     .landingone {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
+        position: relative;
         height: 100vh;
         height: 100lvh;
         overflow: hidden;
@@ -191,11 +191,16 @@
         height: 100%;
     }
 
+    .landingone p.large-title,
+    .landingone p.small-title,
+    .landingcontainer {
+        position: absolute;
+    }
+
     /* same size and spot as the "aa" on the graphic design / photography pages */
     .landingone p.small-title {
         font-size: 24px;
-        /* stay clear of the clock / notch now that the page runs under it */
-        top: calc(16px + env(safe-area-inset-top));
+        top: 16px;
         left: 16px;
     }
 
@@ -206,15 +211,15 @@
 
     .graphicdesign h3,
     .photography h3 {
-        font-size: 21px;
+        font-size: 17px;
     }
 
     .graphicdesign p,
     .photography p {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .graphicdesign {
-        padding-bottom: 20px;
+        padding-bottom: 16px;
     }
 }

@@ -11,6 +11,45 @@ function whenReady(img) {
     return img.decode ? img.decode().catch(() => {}) : Promise.resolve();
 }
 
+// On phones Safari paints the page's background colour in the strip above
+// the page, so tint it to match the top edge of the photo on screen (only
+// visible on phones; on desktop the photo covers the whole window).
+const topColorCache = new Map();
+
+function topEdgeColor(img) {
+    if (topColorCache.has(img)) return topColorCache.get(img);
+    let color = null;
+    try {
+        const canvas = document.createElement('canvas');
+        canvas.width = 16;
+        canvas.height = 4;
+        const ctx = canvas.getContext('2d');
+        // top 3% of the photo, middle half of its width (what "cover" keeps)
+        const w = img.naturalWidth, h = img.naturalHeight;
+        ctx.drawImage(img, w * 0.25, 0, w * 0.5, Math.max(1, h * 0.03), 0, 0, 16, 4);
+        const data = ctx.getImageData(0, 0, 16, 4).data;
+        let r = 0, g = 0, b = 0;
+        for (let i = 0; i < data.length; i += 4) {
+            r += data[i]; g += data[i + 1]; b += data[i + 2];
+        }
+        const n = data.length / 4;
+        color = `rgb(${Math.round(r / n)}, ${Math.round(g / n)}, ${Math.round(b / n)})`;
+    } catch (e) {
+        // unreadable (e.g. opened as a local file): keep the black fallback
+    }
+    topColorCache.set(img, color);
+    return color;
+}
+
+function matchTopStrip(img) {
+    const apply = () => {
+        const color = topEdgeColor(img);
+        if (color) document.documentElement.style.backgroundColor = color;
+    };
+    if (img.complete && img.naturalWidth) apply();
+    else img.addEventListener('load', apply, { once: true });
+}
+
 function createCarouselController(triggerEl, imageSelector) {
     const images = document.querySelectorAll(imageSelector);
     let currentIndex = 0;
@@ -37,6 +76,7 @@ function createCarouselController(triggerEl, imageSelector) {
         // Show next image on top
         nextImage.style.zIndex = 3;
         nextImage.classList.add('active');
+        matchTopStrip(nextImage);
 
         // Hide current image underneath
         setTimeout(() => {
@@ -68,6 +108,7 @@ function createCarouselController(triggerEl, imageSelector) {
         // Show first carousel image
         images[0].style.zIndex = 3;
         images[0].classList.add('active');
+        matchTopStrip(images[0]);
 
         // Start cycling through images
         // (the first image's clock also only starts once it has loaded)
@@ -129,6 +170,7 @@ function goBackHome() {
     // Show landing image and large title again
     landingImage.style.opacity = '1';
     largeTitle.style.opacity = '1';
+    matchTopStrip(landingImage);
 
     // Hide small title
     smallTitle.classList.remove('visible');
@@ -159,6 +201,8 @@ graphicdesignTrigger.addEventListener('click', () => {
 photographyTrigger.addEventListener('click', () => {
     window.location.href = 'photography/photo.html';
 });
+
+matchTopStrip(landingImage);
 
 // Don't stop carousel on mouse leave anymore
 // Only stop when clicking the small "aa" title
