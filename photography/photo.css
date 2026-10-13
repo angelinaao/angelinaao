@@ -253,7 +253,7 @@ font-weight: 700;
     opacity: 0.5;
 }
 
-/* ---------- Phones: stack into one scrolling column ---------- */
+/* ---------- Phones: one scrolling column ---------- */
 @media (max-width: 768px) {
 html,
 body {
@@ -266,22 +266,42 @@ height: auto;
 padding: 0 16px 32px 16px;
 }
 
+/* #left "dissolves" so the list, images, name and city can be ordered
+   freely: project list, then images, then name + city in one row */
 .content {
-flex-direction: column;
+display: grid;
+grid-template-columns: 1fr auto;
 overflow: visible;
 }
 
 #left {
-width: 100%;
-position: static;
-padding: 64px 0 0 0;
+display: contents;
+}
+
+.project-list {
+grid-column: 1 / -1;
+order: 1;
+padding-top: 64px;
 }
 
 #right {
+grid-column: 1 / -1;
+order: 2;
 width: 100%;
 height: auto;
 overflow: visible;
-padding-top: 24px;
+}
+
+/* the open project's images, moved under its description by the page script */
+.project-item > .media-set {
+padding-bottom: 32px;
+}
+
+.project-item > .media-set img,
+.project-item > .media-set video {
+width: 100%;
+height: auto;
+display: block;
 }
 
 .small-title {
@@ -291,23 +311,25 @@ top: 16px;
 left: 16px;
 }
 
-/* name and city sit under the project list instead of pinned to the screen */
+/* name on the left, city on the right under the dates, below everything */
 .project-title-name,
 .category-location {
+order: 3;
 position: static;
-display: inline-block;
 width: auto;
 padding: 24px 0 0 0;
-text-align: left;
-}
-
-.category-location {
-margin-left: 8px;
-font-size: 11px;
+align-self: baseline;
 }
 
 .project-title-name {
+grid-column: 1;
 font-size: 14px;
+}
+
+.category-location {
+grid-column: 2;
+text-align: right;
+font-size: 11px;
 }
 
 .project-title {

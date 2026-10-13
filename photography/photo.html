@@ -357,7 +357,25 @@ for (var i = 0; i < sets.length; i++) {
 sets[i].hidden = sets[i].id !== mediaId;
             }
 document.getElementById("right").scrollTop = 0;
+placeMedia();
         }
+// On phones, show the open project's images right under its description;
+// on desktop (or with nothing open) they live in the right-hand column.
+var phoneQuery = window.matchMedia("(max-width: 768px)");
+function placeMedia() {
+var right = document.getElementById("right");
+var open = document.querySelector(".project-description.open");
+var sets = Array.prototype.slice.call(document.getElementsByClassName("media-set"));
+for (var i = 0; i < sets.length; i++) {
+var set = sets[i];
+if (phoneQuery.matches && open && !set.hidden) {
+open.parentNode.appendChild(set);
+            } else if (set.parentNode !== right) {
+right.appendChild(set);
+            }
+        }
+        }
+phoneQuery.addEventListener("change", placeMedia);
 // open whichever project is at the top of the list on page load
 document.querySelector(".project-row").click();
 </script>
