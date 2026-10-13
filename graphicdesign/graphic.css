@@ -300,19 +300,24 @@ text-align: left;
 
 .category-location {
 margin-left: 8px;
+font-size: 11px;
+}
+
+.project-title-name {
+font-size: 14px;
 }
 
 .project-title {
-font-size: 1rem;
+font-size: 14px;
 }
 
 .project-date,
 .category {
-font-size: 0.75rem;
+font-size: 11px;
 }
 
 .project-description p {
-font-size: 0.95rem;
+font-size: 13px;
 }
 
 /* the hand-placed line breaks are for the desktop column width */
