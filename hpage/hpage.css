@@ -202,19 +202,19 @@
     }
 
     .landingone p.large-title {
-        top: calc(7vh + var(--lift));
+        top: calc(2vh + var(--lift));
     }
 
     /* same size and spot as the "aa" on the graphic design / photography pages */
     .landingone p.small-title {
         font-size: 24px;
-        top: calc(16px + var(--lift));
+        top: calc(4px + var(--lift));
         left: 16px;
     }
 
     .landingcontainer {
         margin-left: 16px;
-        top: calc(24vh + var(--lift));
+        top: calc(20vh + var(--lift));
     }
 
     .graphicdesign h3,
