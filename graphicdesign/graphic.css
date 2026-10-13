@@ -249,3 +249,74 @@ font-weight: 700;
 .small-title:hover {
     opacity: 0.5;
 }
+
+/* ---------- Phones: stack into one scrolling column ---------- */
+@media (max-width: 768px) {
+html,
+body {
+height: auto;
+overflow: auto;
+}
+
+.container {
+height: auto;
+padding: 0 16px 32px 16px;
+}
+
+.content {
+flex-direction: column;
+overflow: visible;
+}
+
+#left {
+width: 100%;
+position: static;
+padding: 64px 0 0 0;
+}
+
+#right {
+width: 100%;
+height: auto;
+overflow: visible;
+padding-top: 24px;
+}
+
+.small-title {
+position: absolute;
+font-size: 24px;
+top: 16px;
+left: 16px;
+}
+
+/* name and city sit under the project list instead of pinned to the screen */
+.project-title-name,
+.category-location {
+position: static;
+display: inline-block;
+width: auto;
+padding: 24px 0 0 0;
+text-align: left;
+}
+
+.category-location {
+margin-left: 8px;
+}
+
+.project-title {
+font-size: 1rem;
+}
+
+.project-date,
+.category {
+font-size: 0.75rem;
+}
+
+.project-description p {
+font-size: 0.95rem;
+}
+
+/* the hand-placed line breaks are for the desktop column width */
+.project-description br {
+display: none;
+}
+}

@@ -160,3 +160,29 @@
     font-weight: 700;
     opacity: 1;
 }
+/* ---------- Phones: readable links and logo ---------- */
+@media (max-width: 768px) {
+    .landingone p.small-title {
+        font-size: 24px;
+        top: 16px;
+        left: 16px;
+    }
+
+    .landingcontainer {
+        margin-left: 16px;
+    }
+
+    .graphicdesign h3,
+    .photography h3 {
+        font-size: 18px;
+    }
+
+    .graphicdesign p,
+    .photography p {
+        font-size: 13px;
+    }
+
+    .graphicdesign {
+        padding-bottom: 20px;
+    }
+}
