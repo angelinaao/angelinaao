@@ -184,11 +184,15 @@
         position: relative;
         height: 100vh;
         height: 100lvh;
-        overflow: hidden;
+        /* not clipped, so the photo can reach up under the address bar */
+        overflow: visible;
     }
 
+    /* start the photo 160px above the page so it fills the strip under
+       Safari's address bar too, instead of a flat colour */
     .landingone img {
-        height: 100%;
+        top: -160px;
+        height: calc(100% + 160px);
     }
 
     .landingone p.large-title,
@@ -211,12 +215,12 @@
 
     .graphicdesign h3,
     .photography h3 {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .graphicdesign p,
     .photography p {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .graphicdesign {
