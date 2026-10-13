@@ -152,12 +152,12 @@ graphicdesignTrigger.addEventListener('mouseenter', () => enterMode('graphicdesi
 
 // Navigate to the graphic design page on click
 graphicdesignTrigger.addEventListener('click', () => {
-    window.location.href = '../graphicdesign/graphic.html';
+    window.location.href = 'graphicdesign/graphic.html';
 });
 
 // Navigate to the photography page on click
 photographyTrigger.addEventListener('click', () => {
-    window.location.href = '../photography/photo.html';
+    window.location.href = 'photography/photo.html';
 });
 
 // Don't stop carousel on mouse leave anymore
