@@ -171,42 +171,50 @@
         height: 100%;
         overflow: hidden;
         overscroll-behavior: none;
+        /* anything peeking out behind Safari's bars is dark, never white */
+        background: black;
     }
 
+    /* fill the whole screen edge to edge, including behind the status bar
+       and Safari's address bar (100lvh = screen height with bars hidden) */
     .landingone {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         height: 100vh;
-        height: 100dvh;
+        height: 100lvh;
         overflow: hidden;
     }
 
-    /* 100dvh = the visible screen, ignoring Safari's sliding address bar */
     .landingone img {
-        height: 100vh;
-        height: 100dvh;
+        height: 100%;
     }
 
     /* same size and spot as the "aa" on the graphic design / photography pages */
     .landingone p.small-title {
         font-size: 24px;
-        top: 16px;
+        /* stay clear of the clock / notch now that the page runs under it */
+        top: calc(16px + env(safe-area-inset-top));
         left: 16px;
     }
 
     .landingcontainer {
         margin-left: 16px;
+        top: 24vh;
     }
 
     .graphicdesign h3,
     .photography h3 {
-        font-size: 26px;
+        font-size: 21px;
     }
 
     .graphicdesign p,
     .photography p {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .graphicdesign {
-        padding-bottom: 28px;
+        padding-bottom: 20px;
     }
 }
