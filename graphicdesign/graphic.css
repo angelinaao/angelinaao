@@ -151,6 +151,9 @@ align-items: flex-start;
 .project-title {
 font-weight: 500;
 font-size: 0.8rem;
+/* let the title hang over the line so the line starts right after the subtitle */
+width: 0;
+overflow: visible;
 }
 
 .project-title-name {
